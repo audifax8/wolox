@@ -1,0 +1,5 @@
+<select class="selectpicker" data-width="fit" (change)="changeLang($event.target.value)">
+  <ng-container *ngFor="let language of languages">
+    <option [value]="language.name">{{language.value | translate}}</option>
+  </ng-container>
+</select>
