@@ -6,7 +6,6 @@ import { SharedModule } from '../shared/shared.module';
 import { ContainerComponent } from './container/container.component';
 import { FiltersComponent } from './filters/filters.component';
 import { TechnologyCardComponent } from './technology-card/technology-card.component';
-import { TechnologiesService } from './technologies.service'
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -29,7 +28,6 @@ const COMPONENTS = [
 ];
 
 const SERVICES = [
-  TechnologiesService
 ];
 
 @NgModule({

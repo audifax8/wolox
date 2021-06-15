@@ -7,12 +7,14 @@ import {
 } from 'rxjs';
 
 import {
-  map, tap
+  map
 } from 'rxjs/operators';
 
 import { ITechnology } from '../interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TechnologiesService {
 
   private typeTechnologyFilter: BehaviorSubject<string> = new BehaviorSubject('');
@@ -38,10 +40,8 @@ export class TechnologiesService {
     this.allTechnologies$,
     this.favoriteTechnologyFilter$
   ]).pipe(
-    tap(([allTechnologies, updateFavorite]) => {console.log({allTechnologies, updateFavorite});}),
     map(([allTechnologies, updateFavorite]) => {
       return allTechnologies.map(technology => {
-        technology.favorite = false;
         if (updateFavorite && (technology.tech=== updateFavorite.tech)) {
           technology.favorite = updateFavorite.favorite;
         }
@@ -59,11 +59,22 @@ export class TechnologiesService {
     ]
   ).pipe(
     map(([allTechnologies, type, name, order]) => {
-      let technologies = this.applyOrderFilter(allTechnologies, order);
+      let technologies = this.applyOrderFilter(allTechnologies, order) ;
       technologies = this.applyNameFilter(technologies, name);
       technologies = this.applyTypeFilter(technologies, type);
       return technologies;
     }),
+  );
+
+  public favoritesCount$ = combineLatest([
+    this.withFavorite$
+  ]).pipe(
+    map(([filteredTechnologies]) => {
+      return filteredTechnologies.reduce((acc, curr) => {
+        acc = (curr.favorite) ? (acc + 1) : acc;
+        return acc;
+      }, 0)
+    })
   );
 
   private applyOrderFilter(technologies: Array<ITechnology>, order: boolean): Array<ITechnology> {
