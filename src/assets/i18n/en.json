@@ -13,5 +13,8 @@
   },
   "buttons": {
     "favorite": "add to favorites"
+  },
+  "labels": {
+    "count": "Count:"
   }
 }

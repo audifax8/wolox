@@ -77,6 +77,12 @@ export class TechnologiesService {
     })
   );
 
+  public technologiesShownCount$ = combineLatest([
+    this.filteredTechnologies$
+  ]).pipe(
+    map(([filteredTechnologies]) => filteredTechnologies.length)
+  );
+
   private applyOrderFilter(technologies: Array<ITechnology>, order: boolean): Array<ITechnology> {
     const sortedTechnologies = technologies.sort((tech1, tech2) => {
       if (order === null) {

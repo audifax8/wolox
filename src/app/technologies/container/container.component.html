@@ -1,4 +1,11 @@
-<app-filters></app-filters>
-<div *ngFor="let technology of filteredTechnologies$ | async">
-  <app-technology-card [technology]="technology" (addTofavorite)="onAddToFavorite($event)"></app-technology-card>
+<div class="technologies">
+  <app-filters class="technologies-filters"></app-filters>
+  <div class="technologies-count">
+    {{ 'labels.count' | translate}}
+    <span class="technologies-count-span">{{ technologiesShownCount$ | async}}</span>
+  </div>
+  <div class="technologies-list" *ngFor="let technology of filteredTechnologies$ | async">
+    <app-technology-card [technology]="technology" (addTofavorite)="onAddToFavorite($event)"></app-technology-card>
+  </div>
 </div>
+

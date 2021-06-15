@@ -9,6 +9,7 @@ import { TechnologiesService } from '../technologies.service';
 export class ContainerComponent implements OnInit {
 
   public filteredTechnologies$;
+  public technologiesShownCount$;
 
   constructor(
     private readonly technologiesS: TechnologiesService
@@ -16,6 +17,7 @@ export class ContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.filteredTechnologies$ = this.technologiesS.filteredTechnologies$;
+    this.technologiesShownCount$ = this.technologiesS.technologiesShownCount$;
   }
 
   public onAddToFavorite(event): void {
