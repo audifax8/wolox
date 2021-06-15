@@ -7,7 +7,7 @@ import {
 } from 'rxjs';
 
 import {
-  map
+  map, tap
 } from 'rxjs/operators';
 
 import { ITechnology } from '../interfaces';
@@ -21,6 +21,9 @@ export class TechnologiesService {
   private nameTechnologyFilter: BehaviorSubject<string> = new BehaviorSubject('');
   public nameTechnologyFilter$ = this.nameTechnologyFilter.asObservable();
 
+  private favoriteTechnologyFilter: BehaviorSubject<ITechnology> = new BehaviorSubject(null);
+  public favoriteTechnologyFilter$ = this.favoriteTechnologyFilter.asObservable();
+
   /**
    * false = asc
    * true = desc
@@ -33,10 +36,15 @@ export class TechnologiesService {
 
   public withFavorite$ = combineLatest([
     this.allTechnologies$,
+    this.favoriteTechnologyFilter$
   ]).pipe(
-    map(([allTechnologies]) => {
+    tap(([allTechnologies, updateFavorite]) => {console.log({allTechnologies, updateFavorite});}),
+    map(([allTechnologies, updateFavorite]) => {
       return allTechnologies.map(technology => {
         technology.favorite = false;
+        if (updateFavorite && (technology.tech=== updateFavorite.tech)) {
+          technology.favorite = updateFavorite.favorite;
+        }
         return technology;
       });
     })
@@ -133,6 +141,10 @@ export class TechnologiesService {
 
   public updateNameFilter(newName: string): void {
     this.nameTechnologyFilter.next(newName);
+  }
+
+  public markAsFavorite(technology: ITechnology): void {
+    this.favoriteTechnologyFilter.next(technology);
   }
 
 }

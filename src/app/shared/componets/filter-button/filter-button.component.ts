@@ -17,7 +17,6 @@ export class FilterButtonComponent {
 
   constructor() {
     this.clickedButtonToogle = false;
-    // todo delete
   }
 
   public handleClick(): void {

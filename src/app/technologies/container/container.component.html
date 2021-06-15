@@ -1,1 +1,4 @@
 <app-filters></app-filters>
+<div *ngFor="let technology of filteredTechnologies$ | async">
+  <app-technology-card [technology]="technology" (addTofavorite)="onAddToFavorite($event)"></app-technology-card>
+</div>

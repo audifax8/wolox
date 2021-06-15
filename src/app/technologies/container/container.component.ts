@@ -8,11 +8,19 @@ import { TechnologiesService } from '../technologies.service';
 })
 export class ContainerComponent implements OnInit {
 
+  public filteredTechnologies$;
+
   constructor(
-    //private readonly technologiesS: TechnologiesService
+    private readonly technologiesS: TechnologiesService
   ) { }
 
   ngOnInit(): void {
+    this.filteredTechnologies$ = this.technologiesS.filteredTechnologies$;
+  }
+
+  public onAddToFavorite(event): void {
+    const { technology } = event;
+    this.technologiesS.markAsFavorite(technology);
   }
 
 }

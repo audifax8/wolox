@@ -10,5 +10,8 @@
     "reset": "Resetear",
     "upward": "Ascendente",
     "falling": "Descendente"
+  },
+  "buttons": {
+    "favorite": "añadir a favoritos"
   }
 }
