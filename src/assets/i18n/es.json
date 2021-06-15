@@ -1,6 +1,14 @@
 {
-  "LANGUAGES": {
-    "EN": "Inglés",
-    "ES": "Español"
+  "languages": {
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "filters": {
+    "mobile": "Móvil",
+    "front": "Front-End",
+    "back": "Back-End",
+    "reset": "Resetear",
+    "upward": "Ascendente",
+    "falling": "Descendente"
   }
 }

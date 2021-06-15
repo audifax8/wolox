@@ -1,12 +1,24 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FilterButtonComponent } from './componets/filter-button/filter-button.component';
 
+const MODULES = [
+  CommonModule
+];
 
+const COMPONENTS = [
+  FilterButtonComponent
+];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ...COMPONENTS
+  ],
   imports: [
-    CommonModule
+    ...MODULES
+  ],
+  exports: [
+    ...COMPONENTS
   ]
 })
 export class SharedModule { }

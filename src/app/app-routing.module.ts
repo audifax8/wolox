@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./landing/landing.module').then(m => m.LandingModule)
   },
+  {
+    path: 'technologies',
+    loadChildren: () =>
+      import('./technologies/technologies.module').then(m => m.TechnologiesModule)
+  },
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: '**', redirectTo: 'landing', pathMatch: 'full' }
 ];

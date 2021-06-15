@@ -14,6 +14,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 const MODULES = [
   BrowserModule,
@@ -27,7 +28,8 @@ const MODULES = [
       deps: [HttpClient]
     }
   }),
-  CoreModule
+  CoreModule,
+  SharedModule
 ];
 
 const COMPONENTS = [

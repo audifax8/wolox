@@ -11,12 +11,12 @@ export class NavComponent {
 
   public languages = [
     {
-      name: LangName.SPANISH,
-      value: 'LANGUAGES.ES'
+      name: LangName.Spanish,
+      value: 'languages.es'
     },
     {
-      name: LangName.ENGLISH,
-      value: 'LANGUAGES.EN'
+      name: LangName.English,
+      value: 'languages.en'
     }
   ];
 

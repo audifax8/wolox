@@ -1,4 +1,11 @@
 export enum LangName {
-  SPANISH = 'es',
-  ENGLISH = 'en'
+  Spanish = 'es',
+  English = 'en'
 }
+
+export enum TechnologyType {
+  Front = 'Front-End',
+  Back = 'Back-End',
+  Mobile = 'Mobile'
+}
+
