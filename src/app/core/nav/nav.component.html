@@ -1,5 +1,28 @@
-<select class="selectpicker" data-width="fit" (change)="changeLang($event.target.value)">
-  <ng-container *ngFor="let language of languages">
-    <option [value]="language.name">{{language.value | translate}}</option>
-  </ng-container>
-</select>
+<nav class="nav">
+  <div class="nav-routes">
+    <ul class="nav-ul" *ngFor="let navRoute of navRoutes">
+      <li class="nav-li">
+        <a
+          href="{{navRoute.route}}"
+
+        >{{navRoute.name | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="(countFavTech$ | async) > 0" class="nav-favorites">
+    <div class="nav-favorites-label">
+      {{'labels.countFavorites' | translate}}
+    </div>
+    <div class="nav-favorites-count">
+      <span>{{countFavTech$ | async }}</span>
+    </div>
+  </div>
+  <div class="nav-languages">
+    <select class="selectpicker" data-width="fit" (change)="changeLang($event.target.value)">
+      <ng-container *ngFor="let language of languages">
+        <option [value]="language.name">{{language.value | translate}}</option>
+      </ng-container>
+    </select>
+  </div>
+</nav>

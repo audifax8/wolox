@@ -17,6 +17,12 @@
     "clear": "Limpiar"
   },
   "labels": {
+    "login": "Login",
+    "landing": "Inicio",
+    "benefits": "Beneficios",
+    "technologies": "Tecnologías",
+    "register": "Registro",
+    "countFavorites": "Favoritas: ",
     "count": "Total:"
   },
   "form": {

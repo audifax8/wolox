@@ -17,6 +17,12 @@
     "clear": "Clear"
   },
   "labels": {
+    "login": "Login",
+    "landing": "Home",
+    "benefits": "Benefits",
+    "technologies": "Technologies",
+    "register": "Register",
+    "countFavorites": "Favorites: ",
     "count": "Count:"
   },
   "form": {

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { TechnologiesService } from 'src/app/technologies/technologies.service';
 import { LangName } from '../../enums';
 
 @Component({
@@ -7,7 +8,7 @@ import { LangName } from '../../enums';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
 
   public languages = [
     {
@@ -20,9 +21,40 @@ export class NavComponent {
     }
   ];
 
+  public navRoutes = [
+    {
+      name: 'labels.login',
+      route: 'login'
+    },
+    {
+      name: 'labels.landing',
+      route: 'landing'
+    },
+    {
+      name: 'labels.benefits',
+      route: 'https://www.wolox.com.ar/',
+      target: '_blank'
+    },
+    {
+      name: 'labels.technologies',
+      route: 'technologies'
+    },
+    {
+      name: 'labels.register',
+      route: 'register'
+    }
+  ];
+
+  public countFavTech$;
+
   constructor(
-    public translateS: TranslateService
+    public translateS: TranslateService,
+    private technologiesS: TechnologiesService
   ) { }
+
+  ngOnInit() {
+    this.countFavTech$ = this.technologiesS.favoritesCount$;
+  }
 
   public changeLang(lan: string) {
     this.translateS.use(lan);
