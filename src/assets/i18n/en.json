@@ -12,9 +12,29 @@
     "falling": "Falling"
   },
   "buttons": {
-    "favorite": "add to favorites"
+    "favorite": "add to favorites",
+    "save": "Save",
+    "clear": "Clear"
   },
   "labels": {
     "count": "Count:"
+  },
+  "form": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "country": "Country",
+    "province": "Province",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "passwordConfirm": "Password Confirm"
+  },
+  "formErrors": {
+    "required": "Error, required field",
+    "email": "Error, field must contain an email",
+    "pattern": "Error, field must have an uppercase, lowercase, number and special caracter",
+    "minlength": "Error, min length: {{minLength}}, current length: {{currentLength}}",
+    "maxlength": "Error, max length: {{maxLength}}, current length: {{currentLength}}",
+    "passwordsNotMatch": "Error, fields Password and Password Confirm must have the same value"
   }
 }

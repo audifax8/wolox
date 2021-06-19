@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="form" [ngClass]="httpStatus$ | async">
+    <form [formGroup]="registerForm">
+
+      <app-form-input
+        [inputType]="InputType.Text"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.firstName"
+        [label]="'form.firstName' | translate"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Text"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.lastName"
+        [label]="'form.lastName' | translate"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Email"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.email"
+        [label]="'form.email' | translate"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Number"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.phone"
+        [label]="'form.phone' | translate"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Select"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.country"
+        [label]="'form.country' | translate"
+        [selectOptions]="countries"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Select"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.province"
+        [label]="'form.province' | translate"
+        [selectOptions]="getProvincesByCountry(registerForm.value.country)"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Password"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.password"
+        [label]="'form.password' | translate"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Password"
+        [formGroup]="registerForm"
+        [formName]="FormInputsNames.passwordConfirm"
+        [label]="'form.passwordConfirm' | translate"
+      ></app-form-input>
+
+      <div *ngIf="hasNoEqualPasswordsError()" class="form-feedback form-group-invalid">
+        <span>{{'formErrors.passwordsNotMatch' | translate}}</span>
+      </div>
+
+      <div class="buttons-section">
+        <div class="button-submit">
+          <button class="button" (click)="onSubmit()" type="submit">{{'buttons.save' | translate}}</button>
+        </div>
+        <div class="button-reset">
+          <button class="button" (click)="onReset()">{{'buttons.clear' | translate}}</button>
+        </div>
+        <button *ngIf="isDevMode" (click)="loadDummyData()">loadDummydata</button>
+      </div>
+    </form>
+  </div>
+</div>
+<pre *ngIf="isDevMode"> {{registerForm.value | json}} {{httpStatus$ | async | json}}</pre>

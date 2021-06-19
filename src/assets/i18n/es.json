@@ -12,9 +12,29 @@
     "falling": "Descendente"
   },
   "buttons": {
-    "favorite": "añadir a favoritos"
+    "favorite": "añadir a favoritos",
+    "save": "Guardar",
+    "clear": "Limpiar"
   },
   "labels": {
     "count": "Total:"
+  },
+  "form": {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "country": "País",
+    "province": "Provincia",
+    "email": "Email",
+    "phone": "Teléfono",
+    "password": "Contraseña",
+    "passwordConfirm": "Confirmar Constraseña"
+  },
+  "formErrors": {
+    "required": "Error, campo requerido",
+    "email": "Error, el campo debe contener un email",
+    "pattern": "Error, el campo debe tener una máyuscula, minúscula, número y un caracter especial",
+    "minlength": "Error, longitud mínima: {{minLength}}, longitud actual: {{currentLength}}",
+    "maxlength": "Error, longitud máxima: {{maxLength}}, longitud actual: {{currentLength}}",
+    "passwordsNotMatch": "Error, campos: Contraseña y Confirmar Contraseña no coinciden"
   }
 }

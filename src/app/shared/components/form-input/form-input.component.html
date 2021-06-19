@@ -1,0 +1,29 @@
+<div class="form-group" [ngClass]="{'form-group-invalid' : !isInvalid(), 'form-group-disabled': isDisabled()}">
+  <div class="form-label">
+    <span>{{label}}</span>
+  </div>
+  <div class="form-input">
+    <input
+      *ngIf="inputType !== InputType.Select"
+      type="{{inputType}}"
+      [ngClass]="{'form-group-invalid' : !isInvalid()}"
+      [formControl]="getFormControl()"
+      aria-disabled="{{isDisabled()}}"
+      aria-invalid="{{isInvalid()}}"
+      aria-required="{{isInvalid()}}"
+    />
+    <select
+      *ngIf="inputType === InputType.Select"
+      [formControl]="getFormControl()"
+      aria-disabled="{{isDisabled()}}"
+      aria-invalid="{{isInvalid()}}"
+      aria-required="{{isInvalid()}}"
+      [ngClass]="{'form-group-invalid' : !isInvalid()}"
+    >
+      <option *ngFor="let option of selectOptions" [value]="option.name">{{option.name}}</option>
+    </select>
+  </div>
+  <div *ngIf="!isInvalid()" class="form-feedback">
+    <span>{{getFormError() | async}}</span>
+  </div>
+</div>

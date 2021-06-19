@@ -1,0 +1,23 @@
+.http-form-clean {
+  border: 3px solid var(--clean-color);
+}
+
+.http-form-error {
+  border: 3px solid var(--error-color);
+}
+
+.http-form-success {
+  border: 3px solid var(--success-color);
+}
+
+.http-form-processing {
+  border: 3px solid var(--processing-color);
+}
+
+.http-form-pending {
+  border: 3px solid var(--pending-color);
+}
+
+form {
+  padding: 50px;
+}

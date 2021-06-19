@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-text: #111111;
+  --color-link: #125699;
+
+  --error-color: red;
+
+  --disabled-color:#dddddd;
+
+  --hover-input-form: #125699;
+
+  --success-color: green;
+  --clean-color: #dddddd;
+  --pending-color: purple;
+  --processing-color: blue;
+}
+
+.form-group-invalid {
+  color: var(--error-color);
+}

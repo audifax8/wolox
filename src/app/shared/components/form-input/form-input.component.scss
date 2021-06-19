@@ -1,0 +1,33 @@
+.form-group-disabled {
+  color: var(--disabled-color);
+}
+
+select:disabled {
+  border: 1px solid var(--disabled-color);
+}
+
+select.form-group-invalid {
+  border: 1px solid var(--error-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number].form-group-invalid,
+input[type=password].form-group-invalid,
+input[type=email].form-group-invalid,
+input[type=text].form-group-invalid {
+  border: 1px solid var(--error-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: var(--color-text);
+}
+
+input[type=text], input[type=email], input[type=number], input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--hover-input-form);
+  border-radius: 4px;
+  box-sizing: border-box;
+}

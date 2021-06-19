@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./landing/landing.module').then(m => m.LandingModule)
   },
   {
+    path: 'register',
+    loadChildren: () =>
+      import('./register/register.module').then(m => m.RegisterModule)
+  },
+  {
     path: 'technologies',
     loadChildren: () =>
       import('./technologies/technologies.module').then(m => m.TechnologiesModule)

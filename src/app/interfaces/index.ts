@@ -8,3 +8,7 @@ export interface ITechnology {
   logo: string,
   favorite: boolean
 }
+
+export interface IFormCommand {
+    execute(): void;
+}
