@@ -5,6 +5,7 @@
         <a
           [routerLink]="navRoute.route"
           [target]="navRoute.target"
+          (click)="handleClick(navRoute)"
         >
         {{navRoute.name | translate}}
         </a>

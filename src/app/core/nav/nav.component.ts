@@ -60,4 +60,10 @@ export class NavComponent implements OnInit{
     this.translateS.use(lan);
   }
 
+  public handleClick(navRoutes) {
+    if (navRoutes.target) {
+      window.open(navRoutes.route, navRoutes.target);
+    }
+  }
+
 }
