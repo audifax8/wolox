@@ -1,0 +1,49 @@
+{
+  "languages": {
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "filters": {
+    "mobile": "Móvil",
+    "front": "Front-End",
+    "back": "Back-End",
+    "reset": "Resetear",
+    "upward": "Ascendente",
+    "falling": "Descendente"
+  },
+  "buttons": {
+    "addFavorite": "añadir a favoritos",
+    "removeFavorite": "remover de favoritos",
+    "save": "Guardar",
+    "clear": "Limpiar"
+  },
+  "labels": {
+    "login": "Login",
+    "landing": "Inicio",
+    "benefits": "Beneficios",
+    "technologies": "Tecnologías",
+    "register": "Registro",
+    "countFavorites": "Favoritas: ",
+    "count": "Total: ",
+    "filterByName": "Filtrar por nombre",
+    "filterByType": "Fitrar por tipo de tecnología"
+  },
+  "form": {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "country": "País",
+    "province": "Provincia",
+    "email": "Email",
+    "phone": "Teléfono",
+    "password": "Contraseña",
+    "passwordConfirm": "Confirmar Constraseña"
+  },
+  "formErrors": {
+    "required": "Error, campo requerido",
+    "email": "Error, el campo debe contener un email",
+    "pattern": "Error, el campo debe tener una máyuscula, minúscula, número y un caracter especial",
+    "minlength": "Error, longitud mínima: {{minLength}}, longitud actual: {{currentLength}}",
+    "maxlength": "Error, longitud máxima: {{maxLength}}, longitud actual: {{currentLength}}",
+    "passwordsNotMatch": "Error, campos: Contraseña y Confirmar Contraseña no coinciden"
+  }
+}
