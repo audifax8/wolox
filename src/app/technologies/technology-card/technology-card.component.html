@@ -1,4 +1,5 @@
 <div class="technoly-card">
   <pre>{{technology | json}}</pre>
-  <button (click)="addToFavorite()">{{'buttons.favorite' | translate}}</button>
+  <button *ngIf="!technology.favorite" (click)="addToFavorite()">{{'buttons.addFavorite' | translate}}</button>
+  <button *ngIf="technology.favorite" (click)="addToFavorite()">{{'buttons.removeFavorite' | translate}}</button>
 </div>

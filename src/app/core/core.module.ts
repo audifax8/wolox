@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 const MODULES = [
   CommonModule,
-  TranslateModule.forChild()
+  TranslateModule.forChild(),
+  RouterModule
 ];
 
 const COMPONENTS = [

@@ -1,11 +1,13 @@
 <div class="filters">
   <div class="filters--input-wraper">
-    <input [formControl]="inputFilter"/>
+    <div class="filters--buttons-label">
+      <span>{{'labels.filterByName' | translate}}</span>
+    </div>
+    <input class="filters--buttons-input"[formControl]="inputFilter"/>
     <div *ngIf="orderFilter$ | async;else upward_button">
       <app-filter-button
         [buttonLabel]="'filters.falling' | translate"
-        [buttonType]="falling"
-        [selected]="falling"
+        [buttonType]="'falling'"
         (buttonClick)="onOrderClick($event)"
       ></app-filter-button>
     </div>
@@ -13,15 +15,17 @@
       <div>
         <app-filter-button
           [buttonLabel]="'filters.upward' | translate"
-          [buttonType]="upward"
-          [selected]="upward"
+          [buttonType]="'upward'"
           (buttonClick)="onOrderClick($event)"
         ></app-filter-button>
       </div>
     </ng-template>
   </div>
   <div class="filters--buttons-wraper">
-    <div *ngFor="let buttonFilter of buttonFilters">
+    <div class="filters--buttons-label">
+      <span>{{'labels.filterByType' | translate}}</span>
+    </div>
+    <div class="filters--buttons" *ngFor="let buttonFilter of buttonFilters">
       <app-filter-button
         [buttonLabel]="buttonFilter.label | translate"
         [buttonType]="buttonFilter.type"

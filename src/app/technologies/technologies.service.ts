@@ -12,9 +12,7 @@ import {
 
 import { ITechnology } from '../interfaces';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TechnologiesService {
 
   private typeTechnologyFilter: BehaviorSubject<string> = new BehaviorSubject('');
@@ -26,6 +24,8 @@ export class TechnologiesService {
   private favoriteTechnologyFilter: BehaviorSubject<ITechnology> = new BehaviorSubject(null);
   public favoriteTechnologyFilter$ = this.favoriteTechnologyFilter.asObservable();
 
+  private cachedTecnologies: Array<ITechnology> = [];
+
   /**
    * false = asc
    * true = desc
@@ -33,20 +33,24 @@ export class TechnologiesService {
   private orderFilter: BehaviorSubject<boolean> = new BehaviorSubject(null);
   public orderFilter$ = this.orderFilter.asObservable();
 
-  private allTechnologies$ =
-    this.http.get('http://private-8e8921-woloxfrontendinverview.apiary-mock.com/techs') as Observable<Array<ITechnology>>;
+  private allTechnologies: BehaviorSubject<Array<ITechnology>> = new BehaviorSubject(null);
+  private allTechnologies$ = this.allTechnologies.asObservable();
 
   public withFavorite$ = combineLatest([
     this.allTechnologies$,
     this.favoriteTechnologyFilter$
   ]).pipe(
     map(([allTechnologies, updateFavorite]) => {
-      return allTechnologies.map(technology => {
+      if (!allTechnologies) return;
+      const withFavorites = allTechnologies.map(technology => {
         if (updateFavorite && (technology.tech=== updateFavorite.tech)) {
           technology.favorite = updateFavorite.favorite;
         }
         return technology;
       });
+
+      this.cachedTecnologies = withFavorites;
+      return withFavorites;
     })
   );
 
@@ -70,6 +74,7 @@ export class TechnologiesService {
     this.withFavorite$
   ]).pipe(
     map(([filteredTechnologies]) => {
+      if (!filteredTechnologies) return 0;
       return filteredTechnologies.reduce((acc, curr) => {
         acc = (curr.favorite) ? (acc + 1) : acc;
         return acc;
@@ -84,6 +89,7 @@ export class TechnologiesService {
   );
 
   private applyOrderFilter(technologies: Array<ITechnology>, order: boolean): Array<ITechnology> {
+    if (!technologies) return [];
     const sortedTechnologies = technologies.sort((tech1, tech2) => {
       if (order === null) {
         return 0;
@@ -130,7 +136,16 @@ export class TechnologiesService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    if(!this.cachedTecnologies.length) {
+      this.http.get('http://private-8e8921-woloxfrontendinverview.apiary-mock.com/techs').subscribe((technologies: Array<ITechnology>) => {
+        this.cachedTecnologies = technologies;
+        this.allTechnologies.next(this.cachedTecnologies);
+      });
+    } else {
+      this.allTechnologies.next(this.cachedTecnologies);
+    }
+  }
 
   public setDefaultFiltersValue(): void {
     this.orderFilter.next(null);

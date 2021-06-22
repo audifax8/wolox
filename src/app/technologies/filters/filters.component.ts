@@ -30,6 +30,8 @@ export class FiltersComponent implements OnInit {
     }
   ];
 
+  public selectedFilterType: TechnologyType;
+
   constructor(
     private readonly technologiesS: TechnologiesService
   ) {
@@ -48,6 +50,7 @@ export class FiltersComponent implements OnInit {
 
   public onButtonClick(event): void {
     this.setTechnologyType(event.type);
+    this.selectedFilterType = event.type;
   }
 
   public setTechnologyType(type: string): void {
@@ -62,5 +65,6 @@ export class FiltersComponent implements OnInit {
   public resetFilters(): void {
     this.inputFilter.setValue('');
     this.technologiesS.setDefaultFiltersValue();
+    this.selectedFilterType = null;
   }
 }

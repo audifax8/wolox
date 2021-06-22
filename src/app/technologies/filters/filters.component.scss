@@ -1,0 +1,20 @@
+.filters,
+.filters--input-wraper,
+.filters--buttons-wraper
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters--buttons-label {
+  margin: 15px;
+}
+
+.filters--buttons-input {
+  height: fit-content;
+}
+
+.filters--clear-button {
+  margin: 0 20px;
+}

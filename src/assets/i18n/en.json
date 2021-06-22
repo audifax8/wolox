@@ -12,7 +12,8 @@
     "falling": "Falling"
   },
   "buttons": {
-    "favorite": "add to favorites",
+    "addFavorite": "add to favorites",
+    "removeFavorite": "remove favorite",
     "save": "Save",
     "clear": "Clear"
   },
@@ -23,7 +24,9 @@
     "technologies": "Technologies",
     "register": "Register",
     "countFavorites": "Favorites: ",
-    "count": "Count:"
+    "count": "Count: ",
+    "filterByName": "Filter by name",
+    "filterByType": "Filter by technology type"
   },
   "form": {
     "firstName": "First Name",

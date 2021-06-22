@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { TechnologyType } from '../../../enums';
 
 @Component({
   selector: 'app-filter-button',
@@ -10,7 +11,7 @@ export class FilterButtonComponent {
 
   @Input() buttonLabel: string;
   @Input() buttonType: string;
-  @Input() selected: string;
+  @Input() selected: TechnologyType;
   @Output() buttonClick = new EventEmitter();
 
   public clickedButtonToogle: boolean;

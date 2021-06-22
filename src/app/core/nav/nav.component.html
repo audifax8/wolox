@@ -3,9 +3,10 @@
     <ul class="nav-ul" *ngFor="let navRoute of navRoutes">
       <li class="nav-li">
         <a
-          href="{{navRoute.route}}"
-
-        >{{navRoute.name | translate}}
+          [routerLink]="navRoute.route"
+          [target]="navRoute.target"
+        >
+        {{navRoute.name | translate}}
         </a>
       </li>
     </ul>

@@ -15,6 +15,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { TechnologiesService } from './technologies/technologies.service';
 
 const MODULES = [
   BrowserModule,
@@ -36,6 +37,10 @@ const COMPONENTS = [
   AppComponent
 ];
 
+const SERVICES = [
+  TechnologiesService
+]
+
 @NgModule({
   declarations: [
     ...COMPONENTS
@@ -43,7 +48,9 @@ const COMPONENTS = [
   imports: [
     ...MODULES
   ],
-  providers: [],
+  providers: [
+    ...SERVICES
+  ],
   bootstrap: [
     ...COMPONENTS
   ]
