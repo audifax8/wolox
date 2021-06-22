@@ -18,7 +18,7 @@ export class RegisterService {
 
   public post(data) {
     this.httpStatus.next(HttpStatus.Processing);
-    this.http.post('http://private-8e8921-woloxfrontendinverview.apiary-mock.com/signup', data, {}).subscribe(
+    this.http.post('https://private-8e8921-woloxfrontendinverview.apiary-mock.com/signup', data, {}).subscribe(
       res => {
         this.httpStatus.next(HttpStatus.Success);
         console.log(res);

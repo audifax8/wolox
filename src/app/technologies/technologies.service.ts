@@ -138,7 +138,7 @@ export class TechnologiesService {
     private http: HttpClient
   ) {
     if(!this.cachedTecnologies.length) {
-      this.http.get('http://private-8e8921-woloxfrontendinverview.apiary-mock.com/techs').subscribe((technologies: Array<ITechnology>) => {
+      this.http.get('https://private-8e8921-woloxfrontendinverview.apiary-mock.com/techs').subscribe((technologies: Array<ITechnology>) => {
         this.cachedTecnologies = technologies;
         this.allTechnologies.next(this.cachedTecnologies);
       });
