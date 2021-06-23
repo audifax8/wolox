@@ -26,7 +26,8 @@
     "countFavorites": "Favoritas: ",
     "count": "Total: ",
     "filterByName": "Filtrar por nombre",
-    "filterByType": "Fitrar por tipo de tecnología"
+    "filterByType": "Fitrar por tipo de tecnología",
+    "logOut": "cerrar sesión"
   },
   "form": {
     "firstName": "Nombre",
