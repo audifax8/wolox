@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { TechnologiesService } from 'src/app/technologies/technologies.service';
+import { LoginService } from 'src/app/login/login.service';
+import { TechnologiesService } from '../../technologies/technologies.service';
 import { LangName } from '../../enums';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -23,10 +25,7 @@ export class NavComponent implements OnInit{
 
   public navRoutes = [
     {
-      name: 'labels.login',
-      route: 'login'
-    },
-    {
+
       name: 'labels.landing',
       route: 'landing'
     },
@@ -49,7 +48,9 @@ export class NavComponent implements OnInit{
 
   constructor(
     public translateS: TranslateService,
-    private technologiesS: TechnologiesService
+    private technologiesS: TechnologiesService,
+    public readonly loginS: LoginService,
+    private readonly routerS: Router
   ) { }
 
   ngOnInit() {
@@ -64,6 +65,13 @@ export class NavComponent implements OnInit{
     if (navRoutes.target) {
       window.open(navRoutes.route, navRoutes.target);
     }
+  }
+
+  public navigateToUrl(url: string) {
+    if (url === 'login') {
+      this.loginS.saveToken(null);
+    }
+    this.routerS.navigate([url])
   }
 
 }

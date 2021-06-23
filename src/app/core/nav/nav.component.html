@@ -1,5 +1,8 @@
 <nav class="nav">
   <div class="nav-routes">
+    <div *ngIf="!loginS.isUserLoged()" class="nav-start-session">
+      <button (click)="navigateToUrl('login')">{{'labels.login' | translate}}</button>
+    </div>
     <ul class="nav-ul" *ngFor="let navRoute of navRoutes">
       <li class="nav-li">
         <a
@@ -26,5 +29,8 @@
         <option [value]="language.name">{{language.value | translate}}</option>
       </ng-container>
     </select>
+  </div>
+  <div *ngIf="loginS.isUserLoged()" class="nav-end-session">
+    <button (click)="navigateToUrl('login')">{{'labels.logOut' | translate}}</button>
   </div>
 </nav>

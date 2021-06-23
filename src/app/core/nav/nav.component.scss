@@ -9,12 +9,11 @@
   display: flex;
   justify-content: space-between;
 }
-.nav-favorites {
-  display: flex;
-  align-items: center;
-}
 
-.nav-languages {
+.nav-favorites,
+.nav-start-session,
+.nav-languages,
+.nav-end-session {
   display: flex;
   align-items: center;
 }

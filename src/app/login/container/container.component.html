@@ -1,0 +1,32 @@
+<div class="container">
+  <div *ngIf="!loginS.isUserLoged()" class="login">
+    <form class="login-form" [formGroup]="loginForm">
+
+      <app-form-input
+        [inputType]="InputType.Email"
+        [formGroup]="loginForm"
+        [formName]="FormInputsNames.email"
+        [label]="'form.email' | translate"
+      ></app-form-input>
+
+      <app-form-input
+        [inputType]="InputType.Password"
+        [formGroup]="loginForm"
+        [formName]="FormInputsNames.password"
+        [label]="'form.password' | translate"
+      ></app-form-input>
+
+      <div class="buttons-section">
+        <div class="button-submit">
+          <button class="button" (click)="onSubmit()" type="submit">{{'labels.login' | translate}}</button>
+        </div>
+        <div class="button-reset">
+          <button class="button" (click)="onReset()">{{'buttons.clear' | translate}}</button>
+        </div>
+        <button *ngIf="isDevMode" (click)="loadDummyData()">loadDummydata</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+<pre *ngIf="isDevMode"> {{loginForm.value | json}}</pre>
